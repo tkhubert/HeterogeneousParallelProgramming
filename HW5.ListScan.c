@@ -20,8 +20,8 @@ __global__ void blockScan(float* input, float* output, int len)
     __shared__ float data[2*BLOCK_SIZE];
     int tx  = threadIdx.x;
     int tx2 = tx+BLOCK_SIZE;
-    int  x  = 2*blockDim.x*blockIdx.x + tx;
-    int  x2 = x+BLOCK_SIZE;
+    int x   = 2*blockDim.x*blockIdx.x + tx;
+    int x2  = x+BLOCK_SIZE;
     
     data[tx]  = x  < len ? input[x]  : 0.;
     data[tx2] = x2 < len ? input[x2] : 0.;
