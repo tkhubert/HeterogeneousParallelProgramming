@@ -42,7 +42,6 @@ int main(int argc, char ** argv)
     cudaMalloc((void**) &deviceInput2, inputLength*sizeof(float));
     cudaMalloc((void**) &deviceOutput, inputLength*sizeof(float));
     
-    int  size = SEG_SIZE*sizeof(float);
     for (int i=0; i<inputLength; i+=NB_STREAM*SEG_SIZE)
     {
         int idx0 = i;
